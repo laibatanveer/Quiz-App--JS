@@ -1,207 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     body {
-        background: linear-gradient(to bottom right, #f9cad2, #dc7a53, #b4481d);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
+      background: linear-gradient(to bottom right, #f9cad2, #dc7a53, #b4481d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
 
     .container {
-        background-color: #f0b49b;
-        border-radius: 8px;
-        padding: 20px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        width: 400px;
+      background-color: #f0b49b;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
     }
 
     .question {
-        margin-bottom: 20px;
+      margin-bottom: 20px;
     }
 
     h3 {
-        margin: 0;
-        font-size: 18px;
-        font-weight: bold;
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
     }
 
     .form-check {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
     }
 
     .form-check-input {
-        margin-right: 10px;
+      margin-right: 10px;
     }
 
     .form-check-label {
-        font-size: 14px;
+      font-size: 14px;
     }
 
     .form-check-input:checked {
-        background-color: #007bff;
+      background-color: #007bff;
     }
 
     .form-check-label {
-        color: #333;
+      color: #333;
     }
 
     .form-check-label:hover {
-        cursor: pointer;
-        text-decoration: underline;
+      cursor: pointer;
+      text-decoration: underline;
     }
 
     button {
-        padding: 10px 20px;
-        background-color: #6b2804;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
+      padding: 10px 20px;
+      background-color: #6b2804;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
     }
 
     button:hover {
-        background-color: #bf2802;
+      background-color: #bf2802;
     }
 
     .progressTracker {
-        background-color: #f1f1f1;
-        height: 10px;
-        border-radius: 5px;
-        margin-bottom: 10px;
+      background-color: #f1f1f1;
+      height: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
     }
 
     .scoreboard {
-        background-color: #b4481d;
-        color: #fff;
-        padding: 10px;
-        border-radius: 4px;
-        font-size: 16px;
+      background-color: #b4481d;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 16px;
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <div class="moveBtn">
-        <button onclick="displayQuestion()">Move Ahead!</button>
+      <button >Move Ahead!</button>
     </div>
-</body>
+  </body>
 
-<script>
-
+  <script>
     const quizData = [
-        {
-            questionNo: 1,
-            question: "Which planet is known as the 'Red Planet'?",
-            choice1: "Venus",
-            choice2: "Mars",
-            choice3: "Jupiter",
-            choice4: "Saturn",
-            answer: "Mars"
-        },
-        {
-            questionNo: 2,
-            question: "Who painted the Mona Lisa?",
-            choice1: "Pablo Picasso",
-            choice2: "Leonardo da Vinci",
-            choice3: "Vincent van Gogh",
-            choice4: "Michelangelo",
-            answer: "Leonardo da Vinci"
-        },
-        {
-            questionNo: 3,
-            question: "What is the capital city of Australia?",
-            choice1: "Sydney",
-            choice2: "Canberra",
-            choice3: "Melbourne",
-            choice4: "Perth",
-            answer: "Canberra"
-        },
-        {
-            questionNo: 4,
-            question: "Who wrote the play 'Romeo and Juliet'?",
-            choice1: "William Shakespeare",
-            choice2: "Oscar Wilde",
-            choice3: "Jane Austen",
-            choice4: "Charles Dickens",
-            answer: "William Shakespeare"
-        },
-        {
-            questionNo: 5,
-            question: "What is the world's largest ocean?",
-            choice1: "Atlantic Ocean",
-            choice2: "Indian Ocean",
-            choice3: "Pacific Ocean",
-            choice4: "Arctic Ocean",
-            answer: "Pacific Ocean"
-        },
-        {
-            questionNo: 6,
-            question: "Which country is known as the 'Land of the Rising Sun'?",
-            choice1: "China",
-            choice2: "Japan",
-            choice3: "India",
-            choice4: "South Korea",
-            answer: "Japan"
-        },
-        {
-            questionNo: 7,
-            question: "What is the chemical symbol for gold?",
-            choice1: "Ag",
-            choice2: "Au",
-            choice3: "Fe",
-            choice4: "Hg",
-            answer: "Au"
-        },
-        {
-            questionNo: 8,
-            question: "Who discovered penicillin?",
-            choice1: "Albert Einstein",
-            choice2: "Isaac Newton",
-            choice3: "Alexander Fleming",
-            choice4: "Marie Curie",
-            answer: "Alexander Fleming"
-        },
-        {
-            questionNo: 9,
-            question: "Which famous scientist developed the theory of relativity?",
-            choice1: "Thomas Edison",
-            choice2: "Nikola Tesla",
-            choice3: "Albert Einstein",
-            choice4: "Isaac Newton",
-            answer: "Albert Einstein"
-        },
-        {
-            questionNo: 10,
-            question: "Which country is home to the Great Barrier Reef?",
-            choice1: "Brazil",
-            choice2: "Australia",
-            choice3: "Mexico",
-            choice4: "Canada",
-            answer: "Australia"
-        }
+      {
+        questionNo: 1,
+        question: "Which planet is known as the 'Red Planet'?",
+        choice1: "Venus",
+        choice2: "Mars",
+        choice3: "Jupiter",
+        choice4: "Saturn",
+        answer: "Mars",
+      },
+      {
+        questionNo: 2,
+        question: "Who painted the Mona Lisa?",
+        choice1: "Pablo Picasso",
+        choice2: "Leonardo da Vinci",
+        choice3: "Vincent van Gogh",
+        choice4: "Michelangelo",
+        answer: "Leonardo da Vinci",
+      },
+      {
+        questionNo: 3,
+        question: "What is the capital city of Australia?",
+        choice1: "Sydney",
+        choice2: "Canberra",
+        choice3: "Melbourne",
+        choice4: "Perth",
+        answer: "Canberra",
+      },
+      {
+        questionNo: 4,
+        question: "Who wrote the play 'Romeo and Juliet'?",
+        choice1: "William Shakespeare",
+        choice2: "Oscar Wilde",
+        choice3: "Jane Austen",
+        choice4: "Charles Dickens",
+        answer: "William Shakespeare",
+      },
+      {
+        questionNo: 5,
+        question: "What is the world's largest ocean?",
+        choice1: "Atlantic Ocean",
+        choice2: "Indian Ocean",
+        choice3: "Pacific Ocean",
+        choice4: "Arctic Ocean",
+        answer: "Pacific Ocean",
+      },
+      {
+        questionNo: 6,
+        question: "Which country is known as the 'Land of the Rising Sun'?",
+        choice1: "China",
+        choice2: "Japan",
+        choice3: "India",
+        choice4: "South Korea",
+        answer: "Japan",
+      },
+      {
+        questionNo: 7,
+        question: "What is the chemical symbol for gold?",
+        choice1: "Ag",
+        choice2: "Au",
+        choice3: "Fe",
+        choice4: "Hg",
+        answer: "Au",
+      },
+      {
+        questionNo: 8,
+        question: "Who discovered penicillin?",
+        choice1: "Albert Einstein",
+        choice2: "Isaac Newton",
+        choice3: "Alexander Fleming",
+        choice4: "Marie Curie",
+        answer: "Alexander Fleming",
+      },
+      {
+        questionNo: 9,
+        question: "Which famous scientist developed the theory of relativity?",
+        choice1: "Thomas Edison",
+        choice2: "Nikola Tesla",
+        choice3: "Albert Einstein",
+        choice4: "Isaac Newton",
+        answer: "Albert Einstein",
+      },
+      {
+        questionNo: 10,
+        question: "Which country is home to the Great Barrier Reef?",
+        choice1: "Brazil",
+        choice2: "Australia",
+        choice3: "Mexico",
+        choice4: "Canada",
+        answer: "Australia",
+      },
     ];
 
     var currentQuestionCount = 0;
-    currentQuestionCount++;
-
-
 
     function displayQuestion() {
-        if (currentQuestionCount < quizData.length) {
-            var display = document.createElement('div');
-            display.className = "container";
-            display.innerHTML = ` <div class="progressTracker"></div>
+
+      if (currentQuestionCount < quizData.length) {
+        var display = document.createElement("div");
+        display.className = "container";
+        display.innerHTML = ` <div class="progressTracker"></div>
 
 <div class="scoreboard">0</div>
 
@@ -223,43 +219,44 @@
 <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
 <label class="form-check-label" for="flexRadioDefault2"></label></div>
 
-<button id="proceedToNext" onclick="displayQuestion()">Submit</button>`;
+<button id="proceedToNext">Submit</button> `;
 
-            var progressTracker = display.querySelector(".progressTracker");
-            var scoreBoard = display.querySelector(".scoreBoard")
-            var questionNoElement = display.querySelector("#questionNo");
-            var questionElement = display.querySelector("#question");
-            var choice1Label = display.querySelector("#choice1 label");
-            var choice2Label = display.querySelector("#choice2 label");
-            var choice3Label = display.querySelector("#choice3 label");
-            var choice4Label = display.querySelector("#choice4 label");
+        var moveBtn = document.getElementsByClassName("moveBtn");
+        moveBtn[0].parentNode.replaceChild(display, moveBtn[0]);
 
-            questionNoElement.textContent = "Question " + quizData[currentQuestionCount].questionNo;
-            questionElement.textContent = quizData[currentQuestionCount].question;
-            choice1Label.textContent = quizData[currentQuestionCount].choice1;
-            choice2Label.textContent = quizData[currentQuestionCount].choice2;
-            choice3Label.textContent = quizData[currentQuestionCount].choice3;
-            choice4Label.textContent = quizData[currentQuestionCount].choice4;
-            currentQuestionCount++;
-            var progressWidth = (currentQuestionCount / quizData.length) * 100 + "%";
-            progressTracker.style.width = progressWidth;
+        var progressTracker = display.querySelector(".progressTracker");
+        var scoreBoard = display.querySelector(".scoreboard");
+        var questionNoElement = display.querySelector("#questionNo");
+        var questionElement = display.querySelector("#question");
+        var choice1Label = display.querySelector("#choice1 label");
+        var choice2Label = display.querySelector("#choice2 label");
+        var choice3Label = display.querySelector("#choice3 label");
+        var choice4Label = display.querySelector("#choice4 label");
 
+        questionNoElement.textContent =
+          "Question " + quizData[currentQuestionCount].questionNo;
+        questionElement.textContent = quizData[currentQuestionCount].question;
+        choice1Label.textContent = quizData[currentQuestionCount].choice1;
+        choice2Label.textContent = quizData[currentQuestionCount].choice2;
+        choice3Label.textContent = quizData[currentQuestionCount].choice3;
+        choice4Label.textContent = quizData[currentQuestionCount].choice4;
+        currentQuestionCount++;
+        var progressWidth =
+          (currentQuestionCount / quizData.length) * 100 + "%";
+        progressTracker.style.width = progressWidth;
 
-            document.body.appendChild(display);
+        document.body.appendChild(display);
+        var submitBtn = document.getElementById("proceedToNext");
+    submitBtn.addEventListener("click", displayQuestion);
 
-            var moveBtn = document.getElementsByClassName("moveBtn");
-            moveBtn[0].parentNode.replaceChild(display, moveBtn[0]);
-
-
-
-        }
-        else {
-            // dsedfvnvsdl
-        }
+      } else {
+        // dsedfvnvsdl
+      }
     }
 
+    var moveBtn = document.getElementsByClassName("moveBtn");
+    moveBtn[0].addEventListener("click", displayQuestion);
 
-
-</script>
-
+    
+  </script>
 </html>
